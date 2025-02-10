@@ -1,0 +1,70 @@
+"use client";
+import Image from "next/image";
+import React, { useEffect } from "react";
+
+function TestPage() {
+  const [data, setData] = React.useState<any>(null);
+  console.log("data", data);
+  // data fetch
+  const dataFetch = async () => {
+    const res = await fetch(
+      "https://api.confidenceresellerbd.com/product/?category_id=91&page=1&limit=500",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5Mjc4NDQ2LCJpYXQiOjE3MzkxOTIwNDYsImp0aSI6ImY5ZjE1NDdlNTRhYTQ1ZGI4ZDBmNDVmY2Q0MGFmNGFiIiwidXNlcl9pZCI6NDA5fQ.ClUGiJYZjIUQlGnJx9g4oY-052yMrow7Py6lLngauFA`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await res.json();
+    setData(data);
+  };
+
+  useEffect(() => {
+    dataFetch();
+  }, []);
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 p-5 md:p-10 lg:p-20">
+      {data &&
+        data?.results?.map((item: any, i: number) => {
+          const productPrice = parseFloat(item?.reseller_price) * 1.33;
+          const discountedPrice = parseInt(item?.reseller_price) * 1.38;
+          return (
+            <div
+              key={i}
+              className="rounded-md shadow-sm border  border-gray-300 p-2 space-y-3 cursor-pointer"
+            >
+              <Image
+                className="object-contain w-full h-[200px] rounded-md"
+                src={item?.thumbnail || ""}
+                alt=""
+                width={500}
+                height={200}
+              />
+              <div className="space-y-2">
+                <p className="text-gray-700 font-semibold text-xl">
+                  {item?.name}
+                </p>
+                <div
+                  className="text-sm text-gray-500"
+                  dangerouslySetInnerHTML={{
+                    __html: item?.description,
+                  }}
+                />
+                <p className="text-xl font-semibold text-gray-600">
+                  {Math.ceil(productPrice)} BDT{" "}
+                  <del className="text-gray-500">
+                    {" "}
+                    {Math.ceil(discountedPrice)} BDT
+                  </del>
+                </p>
+              </div>
+            </div>
+          );
+        })}
+    </div>
+  );
+}
+
+export default TestPage;
