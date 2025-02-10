@@ -14,6 +14,8 @@ function TestPage() {
         headers: {
           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5Mjc4NDQ2LCJpYXQiOjE3MzkxOTIwNDYsImp0aSI6ImY5ZjE1NDdlNTRhYTQ1ZGI4ZDBmNDVmY2Q0MGFmNGFiIiwidXNlcl9pZCI6NDA5fQ.ClUGiJYZjIUQlGnJx9g4oY-052yMrow7Py6lLngauFA`,
           "Content-Type": "application/json",
+          Origin: "https://confidenceresellerbd.com",
+          Referer: "https://confidenceresellerbd.com/",
         },
       }
     );
