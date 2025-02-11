@@ -45,6 +45,7 @@ export default async function TestPage() {
               height={200}
             />
             <div className="space-y-2">
+              <p>Product ID : {item?.id}</p>
               <p className="text-gray-700 font-semibold text-xl">
                 {item?.name}
               </p>
