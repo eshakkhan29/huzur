@@ -8,10 +8,10 @@ async function fetchData() {
     {
       method: "GET",
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5Mjc4NDQ2LCJpYXQiOjE3MzkxOTIwNDYsImp0aSI6ImY5ZjE1NDdlNTRhYTQ1ZGI4ZDBmNDVmY2Q0MGFmNGFiIiwidXNlcl9pZCI6NDA5fQ.ClUGiJYZjIUQlGnJx9g4oY-052yMrow7Py6lLngauFA`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5Mzc4NDEwLCJpYXQiOjE3MzkyOTIwMTAsImp0aSI6IjU1ODhhNWMzMTUzYTRiOTViZjJmYjZlNzFlYTA1YjkzIiwidXNlcl9pZCI6NDA5fQ.z_NV4VF54V9QWVDCj4qBEORZH2Zz4SavtYdB1wg4cmA`,
         "Content-Type": "application/json",
         Origin: "https://confidenceresellerbd.com",
-        Referer: "https://confidenceresellerbd.com/",
+        Referer: "https://confidenceresellerbd.com",
       },
     }
   );
