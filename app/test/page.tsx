@@ -3,12 +3,31 @@ import Image from "next/image";
 // Server Component with Dynamic Data Fetching
 export default async function TestPage() {
   try {
+    const resLoginData = await fetch(
+      "https://api.confidenceresellerbd.com/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Origin: "https://confidenceresellerbd.com",
+          Referer: "https://confidenceresellerbd.com",
+        },
+        body: JSON.stringify({
+          phoneNumber: "+8801708730727",
+          password: "22222222",
+        }),
+        cache: "no-store",
+      }
+    );
+
+    const loginData = await resLoginData.json();
+
     const response = await fetch(
       "https://api.confidenceresellerbd.com/product/?category_id=91&page=1&limit=500",
       {
         method: "GET",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5Mzc4NDEwLCJpYXQiOjE3MzkyOTIwMTAsImp0aSI6IjU1ODhhNWMzMTUzYTRiOTViZjJmYjZlNzFlYTA1YjkzIiwidXNlcl9pZCI6NDA5fQ.z_NV4VF54V9QWVDCj4qBEORZH2Zz4SavtYdB1wg4cmA`,
+          Authorization: `Bearer ${loginData?.access}`,
           "Content-Type": "application/json",
           Origin: "https://confidenceresellerbd.com",
           Referer: "https://confidenceresellerbd.com",
