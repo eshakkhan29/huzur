@@ -9,7 +9,9 @@ function AddFamilyPage() {
   const [data, setData] = useState<any>([]);
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get("http://localhost:3000/users");
+      const { data } = await axios.get(
+        "https://explore-prisma-express-app.onrender.com/users"
+      );
       setData(data);
     };
     getData();
@@ -35,7 +37,7 @@ function AddFamilyPage() {
       try {
         setLoading(true);
         const { data } = await axios.post(
-          "http://localhost:3000/users",
+          "https://explore-prisma-express-app.onrender.com/users",
           finalValue
         );
         console.log(data);

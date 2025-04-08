@@ -10,7 +10,9 @@ function FamilyPage() {
   useEffect(() => {
     const getData = async () => {
       setLoading(true);
-      const { data } = await axios.get("http://localhost:3000/users-tree");
+      const { data } = await axios.get(
+        "https://explore-prisma-express-app.onrender.com/users-tree"
+      );
       const formattedData = buildNestedChildren(data);
       setData(formattedData);
       setLoading(false);
