@@ -49,10 +49,10 @@ function AddFamilyPage() {
     },
   });
   return (
-    <div className="p-20">
+    <div className="p-3 lg:p-20">
       <form
         onSubmit={formik.handleSubmit}
-        className="flex flex-col gap-4 px-40"
+        className="flex flex-col gap-4 lg:px-40"
       >
         <input
           type="text"
